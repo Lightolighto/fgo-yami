@@ -56,12 +56,12 @@ def topLogin(data: list) -> None:
                         "inline": True
                     },                    
                     {
-                        "name": "حسن زلقو",
+                        "name": "الكوارتز",
                         "value": f"{rewards.stone}",
                         "inline": True
                     },
                     {
-                        "name": "الكوارتز",
+                        "name": "مكعبات الكوارتز الصغيرة ديك",
                         "value": f"{rewards.sqf01}",
                         "inline": True
                     },
