@@ -28,7 +28,13 @@ def get_latest_verCode():
     response_data = json.loads(response)
 
     return response_data['verCode']
+    
+def get_latest_appver():
+    endpoint = "https://raw.githubusercontent.com/DNNDHH/FGO-VerCode-extractor/JP/VerCode.json"
+    response = requests.get(endpoint).text
+    response_data = json.loads(response)
 
+    return response_data['appVer']
 
 
 def main():
@@ -37,20 +43,23 @@ def main():
         for i in range(userNums):
             try:
                 instance = user.user(userIds[i], authKeys[i], secretKeys[i])
-                time.sleep(3)
-                logger.info(f"\n ======================================== \n [+] 登录账号 \n ======================================== " )
-
                 time.sleep(1)
-                instance.topLogin_s()
+                logger.info(f"\n {'=' * 40} \n [+] 登录账号 \n {'=' * 40} " )
+                instance.topLogin()
                 time.sleep(2)
                 instance.topHome()
-                time.sleep(2)
+                time.sleep(0.5)
                 instance.lq001()
+                time.sleep(0.5)
+                instance.Present()
+                time.sleep(0.5)
                 instance.lq002()
                 time.sleep(2)
                 instance.buyBlueApple()
                 time.sleep(1)
                 instance.lq003()
+                time.sleep(1)
+                instance.LTO_Gacha()
                 time.sleep(1)
                 instance.drawFP()
 
